@@ -5,6 +5,9 @@ __author__ = "730411985"
 
 def all(group: list[int], single: int) -> bool:
     """Check if all numbers in group of int are equal to single int."""
+    if not group:  # fix "all - Should return False when list is empty. (Edge Case.) (0/5)" error
+        return False
+    
     index: int = 0
     while index < len(group):
         if group[index] != single:
@@ -28,17 +31,20 @@ def max(input: list[int]) -> int:
 
 def is_equal(first: list[int], second: list[int]) -> bool:
     """Determine if all numbers in a list of numbers are equal to all numbers in another list."""
-    index_first: int = 0
-    index_second: int = 0
-    while index_first <= len(first) and index_second <= len(second):
-        index_first += 1
-        index_second += 1
-        if first[index_first] == second[index_second]:
-            return True
-        else:
+    if len(first) != len(second):  # lists have same elements but different lengths error
+        return False
+    
+    index: int = 0  # only one index counter for simplicity
+    while index < len(first) and index < len(second):
+        if first[index] != second[index]:
             return False
+        index += 1
+    
+    return True
 
 
 def extend(original: list[int], add: list[int]) -> None:
     """Mutate original list by appending second list to end."""
     original.extend(add)
+
+# All errors fixed!!!!
