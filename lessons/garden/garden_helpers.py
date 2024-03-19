@@ -15,13 +15,13 @@ def add_by_kind(by_kind: dict[str, list[str]], new_plant_kind: str, new_plant: s
         by_kind[new_plant_kind].append(new_plant)
 
 
-def add_by_date(garden_by_date: dict[str, list[str]], month: str, plant: str) -> None:
+def add_by_date(by_date: dict[str, list[str]], month: str, plant: str) -> None:
     """Add plant under date to sow seeds."""
     if month in garden_by_date:
-        garden_by_date[month].append(plant)
+        by_date[month].append(plant)
     else:
-        garden_by_date[month] = []
-        garden_by_date[month].append(plant)
+        by_date[month] = []
+        by_date[month].append(plant)
 
 
 def lookup_by_kind_and_date(plants_by_kind: dict[str, list[str]], plants_by_date: dict[str, list[str]], kind: str, month: str) -> str:
