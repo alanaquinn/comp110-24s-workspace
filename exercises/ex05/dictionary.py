@@ -54,7 +54,9 @@ def alphabetizer(list_to_alphabetize: list[str]) -> dict[str, list[str]]:
 def update_attendance(attendance_log: dict[str, list[str]], day: str, students: str) -> dict[str, list[str]]:  # UPDATED FOR EX06
     """Add names to days of the week in a dictionary for attendance."""
     if day in attendance_log:  # if day in existing dictionary
-        attendance_log[day].append(students)  # tried using += to add elements to dictionary but did not work, used append to add to list (value)
+        for student in students:  # lines 56 and 57 added in response to EX06 feedback that names could be added multiple times on the same day
+            if student not in attendance_log[day]:
+                attendance_log[day].append(students)  # tried using += to add elements to dictionary but did not work, used append to add to list (value)
     else:  # new day
         attendance_log[day] = [students] 
     return attendance_log  # CHANGE MADE FOR EX06 BECAUSE LACK OF RETURN MADE IT SO ASSERTION WOULD NOT WORK 
