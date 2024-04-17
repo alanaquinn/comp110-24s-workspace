@@ -1,5 +1,7 @@
 """Class writing and Instantiating."""
 
+__author__ = "730411985"
+
 # Definition
 class Profile:  # name class
 
