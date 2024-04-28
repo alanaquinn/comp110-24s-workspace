@@ -55,7 +55,7 @@ def max(head: Node | None) -> int:
     if head is None:
         raise ValueError("Cannot call max with None")
     max_value: int = head.data  # store max value, starting with base
-    current: Node = head  # index to move through linked list
+    current: Node | None = head  # index to move through linked list
     while current is not None:
         if current.data > max_value:  # compare stored max to current
             max_value = current.data
@@ -79,7 +79,7 @@ def scale(head: Node | None, factor: int) -> Node | None:
     """Makes new linked list of Nodes with each value in og multipled by factor."""
     if head is None:  # base case for empty list
         return None
-    scaled_data = head.data * factor  # new node with data multiplied by factor
-    scaled_next = scale(head.next, factor)
-    scaled_node = Node(scaled_data, scaled_next)
+    scaled_data: int = head.data * factor  # new node with data multiplied by factor
+    scaled_next: Node | None = scale(head.next, factor)
+    scaled_node: Node = Node(scaled_data, scaled_next)
     return scaled_node
